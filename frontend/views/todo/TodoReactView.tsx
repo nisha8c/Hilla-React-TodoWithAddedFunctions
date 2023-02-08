@@ -5,10 +5,12 @@ import { TodoEndpoint } from 'Frontend/generated/endpoints';
 import {TextField} from "@hilla/react-components/TextField.js";
 import {Button} from "@hilla/react-components/Button.js";
 import {Checkbox} from "@hilla/react-components/Checkbox.js";
+import {Dialog} from "@hilla/react-components/Dialog.js";
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [task, setTask] = useState('');
+    const [opened, setOpened] = useState(true);
 
     useEffect(() => {
         const getAllTodos = async () => {
