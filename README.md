@@ -17,6 +17,7 @@
 ## Good to have:
 1. some css / scss
 2. instead of Error dialog , can display dialog.
+3. Touch/click the task to done / undone.
 
 
 # Custom project from Hilla
