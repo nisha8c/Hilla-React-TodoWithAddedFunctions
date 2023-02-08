@@ -19,10 +19,14 @@ export default function() {
     }, []);
 
     async function addTodo() {
-        const saved = await TodoEndpoint.add(task);
-        if(saved){
-            setTodos([...todos, saved]);
-            setTask('');
+        if (task !== '' && task.length > 2) {
+            const saved = await TodoEndpoint.add(task);
+            if(saved){
+                setTodos([...todos, saved]);
+                setTask('');
+            }
+        } else {
+            alert('Enter a task with length more than 2')
         }
     }
 
@@ -48,7 +52,15 @@ export default function() {
                 <h1>Hilla cool todo!</h1>
 
                 <div className="flex gap-s">
-                    <TextField value={task} onChange={e => setTask(e.target.value)}/>
+                    <TextField className='add-task-textfield'
+                               value={task}
+                               onChange={e => setTask(e.target.value)}
+                               clear-button-visible
+                               placeholder={'Add a Task...'}
+                               required
+                               errorMessage='Task is required.'
+                               autofocus
+                    />
                     <Button theme="primary" onClick={addTodo}>Add</Button>
                 </div>
 
