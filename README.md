@@ -1,3 +1,24 @@
+# Todo with Java End points and React frontend with Hilla components
+
+## App is capable of
+1. User can add a new task
+2. Click done with chckbox
+3. Delete the task
+4. TextField has remove button when user is writing
+5. Error alert is displayed if the task is empty or less than 3 chanracters.
+6. state persists on any/ multiple browser (hilla inbuilt)
+
+## Functions yet to be added:
+1. Done tasks should move to end of the list
+2. and if undone should go back to their position
+3. Edit the task
+4. Autofocus on hilla textfield component.
+
+## Good to have:
+1. some css / scss
+2. instead of Error dialog , can display dialog.
+
+
 # Custom project from Hilla
 
 This project can be used as a starting point to create your own Hilla application with Spring Boot.
