@@ -21,7 +21,8 @@ export default function() {
         getAllTodos();
     }, []);
 
-    async function addTodo() {
+    async function addTodo(e: any) {
+        e.preventDefault();
         if (task !== '' && task.length > 2) {
             const saved = await TodoEndpoint.add(task);
             if(saved){
@@ -55,16 +56,39 @@ export default function() {
                 <h1>Hilla cool todo!</h1>
 
                 <div className="flex gap-s">
-                    <TextField className='add-task-textfield'
+                    <form onSubmit={addTodo}>
+                        <input
+                            type='text'
+                            id='txtTodoItemToAdd'
+                            value={task}
+                            onChange={e => setTask(e.target.value)}
+                            placeholder='Add new Todo here...'
+                            required
+                            autoFocus
+                        />
+
+                        <button className='btn-add-todo' type='submit' id='btnAddTodo'>
+                            Add
+                        </button>
+
+                    </form>
+
+                    {
+                        /*
+                        <TextField className='add-task-textfield'
                                value={task}
                                onChange={e => setTask(e.target.value)}
                                clear-button-visible
                                placeholder={'Add a Task...'}
                                required
                                errorMessage='Task is required.'
-                               autofocus
+                               helperText='Add todo here...'
                     />
+
                     <Button className='btn-add-todo' theme="primary" onClick={addTodo}>Add</Button>
+                         */
+                    }
+
                 </div>
 
                 <div className='todo-container'>

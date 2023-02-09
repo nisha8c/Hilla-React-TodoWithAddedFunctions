@@ -19,6 +19,7 @@
 1. some css / scss
 2. instead of Error dialog , can display dialog.
 3. Touch/click the task to done / undone.
+4. confirmation dialog before delete.
 
 
 # Custom project from Hilla
