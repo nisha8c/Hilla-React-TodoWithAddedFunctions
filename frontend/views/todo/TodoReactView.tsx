@@ -6,11 +6,12 @@ import {TextField} from "@hilla/react-components/TextField.js";
 import {Button} from "@hilla/react-components/Button.js";
 import {Checkbox} from "@hilla/react-components/Checkbox.js";
 import {Dialog} from "@hilla/react-components/Dialog.js";
+import './TodoStyles.css'
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [task, setTask] = useState('');
-    const [opened, setOpened] = useState(true);
+    const [checked, setChecked] = useState([]);
 
     useEffect(() => {
         const getAllTodos = async () => {
@@ -66,13 +67,32 @@ export default function() {
                     <Button theme="primary" onClick={addTodo}>Add</Button>
                 </div>
 
-                {todos.map(todo => (
-                    <div key={todo.id}>
-                        <Checkbox checked={todo.done} onCheckedChanged={e => updateTodo(todo, e.detail.value)}/>
-                        <span>{todo.task}</span>
-                        <Button theme='danger' onClick={() => removeTodo(todo)}>X</Button>
-                    </div>
-                ))}
+                <div className='todo-container'>
+                    {todos.map(todo => (
+                        <div
+                            className={`todo-card ${
+                            todo.done ? 'todo--completed' : ''
+                            }`}
+                            key={todo.id}
+                        >
+                            <Checkbox
+                                className='todo-checkbox'
+                                checked={todo.done}
+                                onCheckedChanged={e => {
+                                    updateTodo(todo, e.detail.value)
+                                }}
+                            />
+
+                            <span className='todo-body'>
+                                {todo.task}
+                            </span>
+
+                            <Button className='btn-delete-todo'
+                                    onClick={() => removeTodo(todo)}
+                            >X</Button>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );

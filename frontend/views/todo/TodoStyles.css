@@ -1,0 +1,16 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
+.todo-card {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.todo--completed {
+    color: red;
+    order: 2;
+}
