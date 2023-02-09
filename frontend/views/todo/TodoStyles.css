@@ -1,6 +1,7 @@
 .todo-container {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
     order: 1;
 }
 
@@ -13,4 +14,15 @@
 .todo--completed {
     color: red;
     order: 2;
+}
+
+.btn-delete-todo {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    border-radius: 10%;
+}
+
+.btn-delete-todo:hover, .todo-checkbox:hover, .btn-add-todo:hover {
+    cursor: pointer;
 }

@@ -64,7 +64,7 @@ export default function() {
                                errorMessage='Task is required.'
                                autofocus
                     />
-                    <Button theme="primary" onClick={addTodo}>Add</Button>
+                    <Button className='btn-add-todo' theme="primary" onClick={addTodo}>Add</Button>
                 </div>
 
                 <div className='todo-container'>
@@ -78,17 +78,18 @@ export default function() {
                             <Checkbox
                                 className='todo-checkbox'
                                 checked={todo.done}
-                                onCheckedChanged={e => {
-                                    updateTodo(todo, e.detail.value)
-                                }}
+                                onCheckedChanged={e => updateTodo(todo, e.detail.value)}
                             />
 
-                            <span className='todo-body'>
+                            <span
+                                className='todo-body'
+                            >
                                 {todo.task}
                             </span>
 
                             <Button className='btn-delete-todo'
                                     onClick={() => removeTodo(todo)}
+                                    theme='secondary'
                             >X</Button>
                         </div>
                     ))}

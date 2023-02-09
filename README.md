@@ -7,10 +7,11 @@
 4. TextField has remove button when user is writing
 5. Error alert is displayed if the task is empty or less than 3 chanracters.
 6. state persists on any/ multiple browser (hilla inbuilt)
+7. Done tasks should move to end of the list
+8. and if undone should go back to their position
 
 ## Functions yet to be added:
-1. Done tasks should move to end of the list
-2. and if undone should go back to their position
+
 3. Edit the task
 4. Autofocus on hilla textfield component.
 
