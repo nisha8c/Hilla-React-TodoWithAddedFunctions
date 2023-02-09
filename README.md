@@ -4,18 +4,18 @@
 1. User can add a new task
 2. Click done with chckbox
 3. Delete the task
-4. TextField has remove button when user is writing
 5. Error alert is displayed if the task is empty or less than 3 chanracters.
 6. state persists on any/ multiple browser (hilla inbuilt)
 7. Done tasks should move to end of the list
 8. and if undone should go back to their position
+9. Autofocus on input element for easy user access
+10. task gets added on Enyter press for easy access , as well as with Add button.
 
 ## Functions yet to be added:
-
 3. Edit the task
-4. Autofocus on hilla textfield component.
 
 ## Good to have:
+
 1. some css / scss
 2. instead of Error dialog , can display dialog.
 3. Touch/click the task to done / undone.
