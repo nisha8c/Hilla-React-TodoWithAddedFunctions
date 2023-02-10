@@ -3,10 +3,11 @@ import Todo from 'Frontend/generated/com/example/application/Todo';
 import { TodoEndpoint } from 'Frontend/generated/endpoints';
 
 import {TextField} from "@hilla/react-components/TextField.js";
-import {Button} from "@hilla/react-components/Button.js";
+//import {Button} from "@hilla/react-components/Button.js";
+
 import {Checkbox} from "@hilla/react-components/Checkbox.js";
-import {Dialog} from "@hilla/react-components/Dialog.js";
 import './TodoStyles.css'
+import {Button, Form, Stack, Row, Col} from 'react-bootstrap';
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -52,26 +53,37 @@ export default function() {
 
     return(
         <>
-            <div className="p-m">
+            <div className="flex-grow p-l">
                 <h1>Hilla cool todo!</h1>
 
                 <div className="flex gap-s">
-                    <form onSubmit={addTodo}>
-                        <input
-                            type='text'
-                            id='txtTodoItemToAdd'
-                            value={task}
-                            onChange={e => setTask(e.target.value)}
-                            placeholder='Add new Todo here...'
-                            required
-                            autoFocus
-                        />
+                    <Form onSubmit={addTodo}>
+                        <Stack gap={4}>
+                            <Row>
+                                <Col xs="auto">
+                                    <Form.Group>
+                                        <Form.Control
+                                            type="text"
+                                            value={task}
+                                            onChange={e => setTask(e.target.value)}
+                                            required
+                                            autoFocus={true}
+                                            placeholder="Add new task here"
+                                        />
+                                        <Form.Text className="text-muted">
+                                            More than 2 characters.
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
 
-                        <button className='btn-add-todo' type='submit' id='btnAddTodo'>
-                            Add
-                        </button>
-
-                    </form>
+                                <Col>
+                                    <Button variant="outline-primary" type="submit">
+                                        Submit
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Stack>
+                    </Form>
 
                     {
                         /*
@@ -111,9 +123,11 @@ export default function() {
                                 {todo.task}
                             </span>
 
-                            <Button className='btn-delete-todo'
-                                    onClick={() => removeTodo(todo)}
-                                    theme='secondary'
+                            <Button
+                                className='btn-delete-todo ml-m mb-s border-0'
+                                variant="outline-danger"
+                                size="sm"
+                                onClick={() => removeTodo(todo)}
                             >X</Button>
                         </div>
                     ))}
