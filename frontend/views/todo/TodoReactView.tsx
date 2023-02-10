@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Todo from 'Frontend/generated/com/example/application/Todo';
 import { TodoEndpoint } from 'Frontend/generated/endpoints';
+import toast from 'react-hot-toast';
 
 import {TextField} from "@hilla/react-components/TextField.js";
 //import {Button} from "@hilla/react-components/Button.js";
@@ -60,6 +61,9 @@ export default function() {
         const deletedTodoId = await TodoEndpoint.delete(todo);
         if (deletedTodoId) {
             setTodos(todos.filter((todo) => todo.id != deletedTodoId))
+            toast.success(`${todo.task} is selected.`, {
+                position: "bottom-center",
+            });
         }
     }
 

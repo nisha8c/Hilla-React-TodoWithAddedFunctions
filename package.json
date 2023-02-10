@@ -36,6 +36,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
@@ -92,7 +93,8 @@
     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
     "@hilla/generator-typescript-cli": "$@hilla/generator-typescript-cli",
     "react-bootstrap": "$react-bootstrap",
-    "bootstrap": "$bootstrap"
+    "bootstrap": "$bootstrap",
+    "react-hot-toast": "$react-hot-toast"
   },
   "vaadin": {
     "dependencies": {
@@ -140,6 +142,6 @@
       "workbox-core": "6.5.4",
       "workbox-precaching": "6.5.4"
     },
-    "hash": "9fa8859d9ff4c618bd59ad20bf0958568ab14d0f53492f1e4fb6ed6cc21d5184"
+    "hash": "2dee8f71d5d2393e753363a497cc840b450cce354254bbf962aff4fa0fa0bdee"
   }
 }
