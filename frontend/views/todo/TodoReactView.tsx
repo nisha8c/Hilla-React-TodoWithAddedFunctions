@@ -61,7 +61,7 @@ export default function() {
         const deletedTodoId = await TodoEndpoint.delete(todo);
         if (deletedTodoId) {
             setTodos(todos.filter((todo) => todo.id != deletedTodoId))
-            toast.success(`${todo.task} is selected.`, {
+            toast.success(`${todo.task} is deleted.`, {
                 position: "bottom-center",
             });
         }
