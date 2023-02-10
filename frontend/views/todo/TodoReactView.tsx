@@ -7,12 +7,23 @@ import {TextField} from "@hilla/react-components/TextField.js";
 
 import {Checkbox} from "@hilla/react-components/Checkbox.js";
 import './TodoStyles.css'
-import {Button, Form, Stack, Row, Col} from 'react-bootstrap';
+import {Button,
+        Form,
+        Stack,
+        Row,
+        Col,
+        Modal
+        } from 'react-bootstrap';
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [task, setTask] = useState('');
     const [checked, setChecked] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         const getAllTodos = async () => {
@@ -31,7 +42,8 @@ export default function() {
                 setTask('');
             }
         } else {
-            alert('Enter a task with length more than 2')
+            setShowModal(true);
+            handleShow();
         }
     }
 
@@ -84,6 +96,21 @@ export default function() {
                             </Row>
                         </Stack>
                     </Form>
+
+                    {
+                        showModal &&
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Info</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Enter more than 2 characters.</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+                    }
 
                     {
                         /*

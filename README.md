@@ -1,10 +1,12 @@
 # Todo with Java End points and React frontend with Hilla components
 
+## Using bootstrap and react-bootstrap components nad few hilla components
+
 ## App is capable of
 1. User can add a new task
-2. Click done with chckbox
+2. Click done with checkbox
 3. Delete the task
-5. Error alert is displayed if the task is empty or less than 3 chanracters.
+5. modal msg is displayed if the task is less than 3 characters.
 6. state persists on any/ multiple browser (hilla inbuilt)
 7. Done tasks should move to end of the list
 8. and if undone should go back to their position
