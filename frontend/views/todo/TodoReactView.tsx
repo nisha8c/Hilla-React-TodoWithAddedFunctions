@@ -8,13 +8,15 @@ import {TextField} from "@hilla/react-components/TextField.js";
 
 import {Checkbox} from "@hilla/react-components/Checkbox.js";
 import './TodoStyles.css'
-import {Button,
+import {
         Form,
         Stack,
         Row,
         Col,
         Modal
         } from 'react-bootstrap';
+
+import {Input, Button} from "@mui/material";
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -78,13 +80,30 @@ export default function() {
                             <Row>
                                 <Col xs="auto">
                                     <Form.Group>
-                                        <Form.Control
+                                        {
+                                            /*
+                                            <Form.Control
                                             type="text"
                                             value={task}
                                             onChange={e => setTask(e.target.value)}
                                             required
                                             autoFocus={true}
                                             placeholder="Add new task here"
+                                        />
+                                             */
+                                        }
+
+                                        <Input
+                                            placeholder={"Add todo here"}
+                                            inputProps={{
+                                                "aria-label": "Description"
+                                            }}
+                                            onChange={e => setTask(e.target.value)}
+                                            autoFocus={true}
+                                            required={true}
+                                            value={task}
+                                            type={'text'}
+                                            style={{ width: "90%" }}
                                         />
                                         <Form.Text className="text-muted">
                                             More than 2 characters.
@@ -93,9 +112,20 @@ export default function() {
                                 </Col>
 
                                 <Col>
-                                    <Button variant="outline-primary" type="submit">
+                                    {
+                                        /*
+                                        <Button variant="outline-primary" type="submit">
                                         Submit
                                     </Button>
+                                         */
+                                    }
+                                    <Button
+                                        type={'submit'}
+                                        variant={'outlined'}
+                                        color={'primary'}
+                                        style={{ width: "10%" }}
+                                    >Add</Button>
+
                                 </Col>
                             </Row>
                         </Stack>
@@ -109,9 +139,17 @@ export default function() {
                             </Modal.Header>
                             <Modal.Body>Enter more than 2 characters.</Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
+                                {
+                                    /*
+                                    <Button variant="secondary" onClick={handleClose}>
                                     Close
                                 </Button>
+                                     */
+                                }
+                                <Button
+                                    variant={'outlined'}
+                                    onClick={handleClose}
+                                >Close</Button>
                             </Modal.Footer>
                         </Modal>
                     }
@@ -154,12 +192,24 @@ export default function() {
                                 {todo.task}
                             </span>
 
-                            <Button
+                            {
+                                /*
+                                <Button
                                 className='btn-delete-todo ml-m mb-s border-0'
                                 variant="outline-danger"
                                 size="sm"
                                 onClick={() => removeTodo(todo)}
                             >X</Button>
+                                 */
+                            }
+                            <Button
+                                className='btn-delete-todo ml-m mb-s border-0'
+                                variant={'outlined'}
+                                size={'small'}
+                                onClick={() => removeTodo(todo)}
+                                color={'warning'}
+                            >X</Button>
+
                         </div>
                     ))}
                 </div>
