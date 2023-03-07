@@ -16,7 +16,17 @@ import {
         Modal
         } from 'react-bootstrap';
 
-import {Input, Button} from "@mui/material";
+import {Input, Button, Paper, IconButton} from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+const styles = {
+    Paper: {
+        padding: 20,
+        margin: "auto",
+        textAlign: "center",
+        width: 500
+    }
+};
 
 export default function() {
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -70,15 +80,15 @@ export default function() {
     }
 
     return(
-        <>
+        <div className="main-container m-1 p-l">
             <div className="flex-grow p-l">
-                <h1>Hilla cool todo!</h1>
+                <h1>Hilla Todo!</h1>
 
                 <div className="flex gap-s">
-                    <Form onSubmit={addTodo}>
+                    <Form onSubmit={addTodo} style={{ width: "100%" }}>
                         <Stack gap={4}>
                             <Row>
-                                <Col xs="auto">
+                                <Col xs={"auto"}>
                                     <Form.Group>
                                         {
                                             /*
@@ -124,6 +134,7 @@ export default function() {
                                         variant={'outlined'}
                                         color={'primary'}
                                         style={{ width: "10%" }}
+                                        size={'small'}
                                     >Add</Button>
 
                                 </Col>
@@ -174,20 +185,22 @@ export default function() {
 
                 <div className='todo-container'>
                     {todos.map(todo => (
+
                         <div
                             className={`todo-card ${
                             todo.done ? 'todo--completed' : ''
                             }`}
                             key={todo.id}
                         >
+
                             <Checkbox
-                                className='todo-checkbox'
+                                className='todo-checkbox pr-s ml-s'
                                 checked={todo.done}
                                 onCheckedChanged={e => updateTodo(todo, e.detail.value)}
                             />
 
                             <span
-                                className='todo-body'
+                                className='todo-body flex-wrap'
                             >
                                 {todo.task}
                             </span>
@@ -200,8 +213,8 @@ export default function() {
                                 size="sm"
                                 onClick={() => removeTodo(todo)}
                             >X</Button>
-                                 */
-                            }
+
+
                             <Button
                                 className='btn-delete-todo ml-m mb-s border-0'
                                 variant={'outlined'}
@@ -209,11 +222,24 @@ export default function() {
                                 onClick={() => removeTodo(todo)}
                                 color={'warning'}
                             >X</Button>
+                                 */
+                            }
+
+
+                            <IconButton
+                                className="ml-auto"
+                                color={'warning'}
+                                aria-label={'Delete'}
+                                onClick={() => removeTodo(todo)}
+                            >
+                                <DeleteIcon />
+                            </IconButton>
 
                         </div>
+
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 }

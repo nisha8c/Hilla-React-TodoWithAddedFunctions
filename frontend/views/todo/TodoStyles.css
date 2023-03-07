@@ -9,6 +9,17 @@
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
+    box-shadow: 5px 5px 5px lightgray;
+    margin-bottom: 15px;
+    padding-top: 8px;
+    transition: transform .1s;
+    background-color: aliceblue;
+}
+
+.todo-card:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
 }
 
 .todo--completed {
@@ -18,4 +29,8 @@
 
 .todo-checkbox:hover {
     cursor: pointer;
+}
+
+.main-container {
+    background-color: beige;
 }
